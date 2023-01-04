@@ -1,0 +1,5 @@
+EXPRESS : Framework de node que nos permite poder recibir peticiones, mediante una ruta podra procesarlo y devolver algo
+Puede enviar los archivos estaticos al front end
+SOCKET.IO : Es un modulo de node que nos permite comunicar el front end con el backend de modo que el backend pueda enviar tambien
+eventos al frontend- Comunicacion bi direcional
+MORGAN : Poder ver por consola las peticiones que van llegando
