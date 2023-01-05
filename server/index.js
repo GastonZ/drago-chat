@@ -3,13 +3,27 @@ import morgan from 'morgan'
 import {Server as SocketServer} from 'socket.io'
 import http from 'http'
 import cors from 'cors'
+import {PORT} from './config.js'
 
 const app = express()
 const server = http.createServer(app)
-const io = new SocketServer(server)
+const io = new SocketServer(server, {
+    cors: {
+        origin: 'http://localhost:3000'
+    }
+})
 
 app.use(cors())
 app.use(morgan("dev"))
+io.on('connection', (socket)=> {
+    console.log(socket.id)
+    socket.on('message', (message)=> {
+        socket.broadcast.emit('message', {
+            body: message,
+            from: socket.id
+        })
+    })
+})
 
-app.listen(3000)
-console.log('server started on port 3000');
+server.listen(PORT)
+console.log('server started on port ' + PORT);
