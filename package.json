@@ -6,9 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node server/index.js",
-    "dev": "nodemon server/index.js",
-    "build": "npm --prefix client install && npm run --prefix client build"
-  },
+    "dev": "nodemon server/index.js"
+   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GastonZ/drago-chat.git"
